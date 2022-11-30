@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css"> -->
+
+    <script>
+        function myFunction() {
+            const perSecond = 2; //2c per second
+
+            let amount = 1;
+
+            setInterval(motivate, 1000);
+        }
+
+        function motivate() {
+            document.getElementById("amt").innerText = parseInt(document.getElementById("amt").innerText) + 1;
+            console.log(Date.now());
+        } 
+    </script>
+    <style>
+        body{
+            background-image: url('coins.gif');
+            background-size: cover;
+            
+            height: 100vh;
+            padding:0;
+            margin:0;
+            opacity: 0.6;
+            color:aliceblue !important;
+            background-color: red;
+        }
+      .container{
+            background-color:aliceblue !important;
+            color: black;
+
+        }
+        a {
+            background-color: gainsboro;
+            
+        }
+    </style>
+</head>
+
+<body onload="myFunction()">
+  
+    <header>
+        <h1>Motivate the kids</h1>
+        <p>This is a count up page showing dollars and cents earned</p> 
+    </header
+    <main>
+        <div class="container">
+            <h1>Motivation</h1>
+            <span id="amt">0</span>
+          
+        </div>
+
+    </main>
+    <footer>
+        <p>Thanks</p>
+        <a href="https://www.vecteezy.com/video/4717784-coin-falling-free-stock-effect-video-footage">Coin falling free stock effect video footage Stock Videos by Vecteezy</a></footer>
+</body>
+</html>
