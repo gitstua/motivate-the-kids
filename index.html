@@ -17,11 +17,18 @@
         }
 
         function motivate() {
-            amount = amount + perHour /60 /60;
+            amount = (amount + perHour /60 /60);
 
             // var num = 1629; // this represents $16.29
             // num /= 100; // cent to dollar
             // num.toLocaleString("en-US", {style:"currency", currency:"USD"});
+
+            if (Math.trunc(amount) % 10 == 0){
+                document.body.classList.add("coins");
+            }
+            else{
+                document.body.classList.remove("coins");
+            }
 
             document.getElementById("amt").innerText = (amount/100).toLocaleString("en-US", {style:"currency", currency:"USD"});
         } 
@@ -39,15 +46,19 @@
     </script>
     <style>
         body{
-            background-image: url('coins.gif');
+            
             background-size: cover;
+            background-image: none;
             
             height: 100vh;
             padding:0;
             margin:0;
             opacity: 0.6;
             color:aliceblue !important;
-            background-color: red;
+            background-color: black;
+        }
+        body.coins{
+            background-image: url('coins.gif');
         }
       .container{
             background-color:aliceblue !important;
