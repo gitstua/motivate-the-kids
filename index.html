@@ -5,22 +5,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Motivate the kids</title>
     <!-- <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css"> -->
 
     <script>
+        let amount = 1;
+        let perHour = 1000; ///1000 = default to $10 per hour
+
         function myFunction() {
-            const perSecond = 2; //2c per second
-
-            let amount = 1;
-
             setInterval(motivate, 1000);
         }
 
         function motivate() {
-            document.getElementById("amt").innerText = parseInt(document.getElementById("amt").innerText) + 1;
-            console.log(Date.now());
+            amount = amount + perHour /60 /60;
+
+            // var num = 1629; // this represents $16.29
+            // num /= 100; // cent to dollar
+            // num.toLocaleString("en-US", {style:"currency", currency:"USD"});
+
+            document.getElementById("amt").innerText = (amount/100).toLocaleString("en-US", {style:"currency", currency:"USD"});
         } 
+
+        function setRatePerHour(){
+            let userText = prompt("Please enter cents per hour. e.g. 1000 for $10 per hour", perHour);
+            let text;
+            if (userText == null || userText == "" || parseInt(userText) == NaN) {
+                alert("enter a number e.g. 1000 for $10 per hour")
+            } else {
+                perHour = parseInt(userText);
+            } 
+        }
+
     </script>
     <style>
         body{
@@ -39,9 +54,17 @@
             color: black;
 
         }
-        a {
-            background-color: gainsboro;
-            
+        header a{
+            color:white;
+        }
+        footer a{
+            background-color: grey;
+            float:right;
+            font-size: smaller;
+        }
+        #amt{
+            font-size:x-large;
+            font-weight: bolder;
         }
     </style>
 </head>
@@ -50,7 +73,7 @@
   
     <header>
         <h1>Motivate the kids</h1>
-        <p>This is a count up page showing dollars and cents earned</p> 
+        <p>This is a count up page showing dollars and cents earned. You can <a href="javascript:setRatePerHour()">configure</a> the amount per hour in cents. </p> 
     </header
     <main>
         <div class="container">
@@ -61,7 +84,7 @@
 
     </main>
     <footer>
-        <p>Thanks</p>
-        <a href="https://www.vecteezy.com/video/4717784-coin-falling-free-stock-effect-video-footage">Coin falling free stock effect video footage Stock Videos by Vecteezy</a></footer>
+            <a href="https://www.vecteezy.com/video/4717784-coin-falling-free-stock-effect-video-footage">Coin falling free stock effect video footage Stock Videos by Vecteezy</a>
+    </footer>
 </body>
 </html>
